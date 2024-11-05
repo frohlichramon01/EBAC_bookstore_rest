@@ -1,7 +1,0 @@
-branch
-
-construir do zero
-django rest framework
-
-configurar projeto do zero
-criar branch e fazer pull request
