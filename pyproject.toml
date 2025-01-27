@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Bookstore API"
 authors = ["frohlichramon01 <frohlichramon01@gmail.com>"]
 readme = "README.md"
+packages = [{ include = "bookstore" }]
 
 [tool.poetry.dependencies]
 python = "^3.9"
