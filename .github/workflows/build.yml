@@ -32,6 +32,9 @@ jobs:
       shell: bash
       run: python -m poetry install
 
-    - name: Test
-      run: |
-        poetry run python manage.py test
+    # Start Docker Compose and run tests within the container
+    - name: Start Docker Compose services
+      run: docker-compose up -d --build
+
+    - name: Run Tests
+      run: docker-compose exec -T web python manage.py test
