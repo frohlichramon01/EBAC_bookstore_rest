@@ -8,23 +8,23 @@ jobs:
       fail-fast: false
       matrix:
         python-version: [3.8, 3.9]
-        poetry-version: [1.1.4]
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
 
-    - name: Install poetry ${{ matrix.poetry-version }}
+    - name: Install poetry
       run: |
         python -m ensurepip
         python -m pip install --upgrade pip
-        python -m pip install poetry==${{ matrix.poetry-version }}
+        python -m pip install --upgrade poetry
+
     - name: View poetry --help
       run: poetry --help
 
@@ -32,6 +32,6 @@ jobs:
       shell: bash
       run: python -m poetry install
 
-    - name: Run Tests
+    - name: Test
       run: |
         poetry run python manage.py test
