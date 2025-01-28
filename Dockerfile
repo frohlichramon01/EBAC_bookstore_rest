@@ -52,7 +52,7 @@ RUN ls -la /opt/pysetup
 RUN poetry install --only main
 
 # Instalar pytest e factory-boy
-RUN pip install factory-boy==3.3.1 pytest==8.3.3
+RUN pip install --no-cache-dir factory-boy==3.3.1 pytest==8.3.3
 
 # Definir diretório de trabalho para a aplicação
 WORKDIR /app
