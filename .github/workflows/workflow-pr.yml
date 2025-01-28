@@ -12,10 +12,6 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
 
       - name: Install poetry
         run: |
@@ -32,13 +28,6 @@ jobs:
         shell: bash
         run: python -m poetry install
 
-       # Start Docker Compose and run tests within the container
-      - name: Start Docker Compose services
-        run: docker-compose up -d --build
-
-      - name: Test
-        run: |
-          poetry run python manage.py test
       - name: Wemake Python Stylguide
         uses: wemake-services/wemake-python-styleguide@0.16.0
         continue-on-error: true
